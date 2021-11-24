@@ -26,6 +26,7 @@ function generateLetter() {
       const wordsArray = inputedText.split(' ');
       for (let i = 0; i < wordsArray.length; i += 1) {
         const word = document.createElement('span');
+        // word.className = 'single-word';
         setRandomClasses(word);
         word.innerHTML = wordsArray[i];
         parag.appendChild(word);
@@ -35,3 +36,15 @@ function generateLetter() {
 }
 
 generateLetter();
+
+function changeWordStyle() {
+  parag.addEventListener('click', (event) => {
+    const word = event.target;
+    if (word.id !== 'carta-gerada') {
+      word.className = '';
+      setRandomClasses(event.target);
+    }
+  });
+}
+
+changeWordStyle();
