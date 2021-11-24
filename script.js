@@ -1,5 +1,6 @@
 const parag = document.getElementById('carta-gerada');
 const createButton = document.getElementById('criar-carta');
+const counter = document.getElementById('carta-contador');
 
 function setRandomClasses(wordFromPhrase) {
   const styleGroup = ['newspaper', 'magazine1', 'magazine2'];
@@ -23,10 +24,12 @@ function generateLetter() {
     if (!inputedText.trim()) {
       parag.innerHTML = 'Por favor, digite o conteúdo da carta.';
     } else {
+      let count = 0;
       const wordsArray = inputedText.split(' ');
       for (let i = 0; i < wordsArray.length; i += 1) {
+        count += 1;
+        counter.innerHTML = count;
         const word = document.createElement('span');
-        // word.className = 'single-word';
         setRandomClasses(word);
         word.innerHTML = wordsArray[i];
         parag.appendChild(word);
